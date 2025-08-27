@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Langflow Integration Example</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8f8f8; color: #222; }
+        pre { background: #222; color: #eee; padding: 1em; border-radius: 6px; overflow-x: auto; }
+        code { font-family: "Fira Mono", monospace; }
+        h2 { color: #005a9e; }
+        .section { margin-bottom: 2em; }
+        ul { margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+    <h1>Langflow Integration Example</h1>
+
+    <div class="section">
+        <h2>Step 1: Install Langflow</h2>
+        <pre><code>pip install langflow</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Step 2: Launch Langflow</h2>
+        <pre><code>langflow run</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Step 3: Open in Browser</h2>
+        <pre><code>$BROWSER https://googlebtc.com/</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Step 4: Component-Based Integration</h2>
+        <ul>
+            <li>
+                <strong>Weather API Node:</strong>
+                <pre><code>{
+    "type": "REST API",
+    "endpoint": "https://api.openweathermap.org/data/2.5/weather",
+    "method": "GET",
+    "parameters": {
+        "q": "London",
+        "appid": "YOUR_API_KEY"
+    }
+}</code></pre>
+            </li>
+            <li>
+                <strong>CRM API Node:</strong>
+                <pre><code>{
+    "type": "Custom Node",
+    "inputs": { "customer_id": "string" },
+    "outputs": { "customer_data": "json" },
+    "logic": "// import requests\n// def fetch_customer_data(customer_id):\n//     response = requests.get(f'https://api.crm.com/customers/{customer_id}', headers={'Authorization': 'Bearer YOUR_CRM_API_KEY'})\n//     return response.json()"
+}</code></pre>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Step 5: Modularity &amp; Reusability</h2>
+        <pre><code>{
+    "type": "API Request",
+    "config": {
+        "url": "https://api.example.com/data",
+        "headers": { "Authorization": "Bearer YOUR_API_KEY" },
+        "payload": { "key": "value" }
+    }
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Step 6: External API Access</h2>
+        <ul>
+            <li>
+                <strong>REST API Call:</strong>
+                <pre><code>{
+    "type": "REST API",
+    "endpoint": "https://api.publicapis.org/entries",
+    "method": "GET"
+}</code></pre>
+            </li>
+            <li>
+                <strong>Parsing JSON Response:</strong>
+                <pre><code>// def parse_response(response):
+//     return response['entries']
+</code></pre>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Step 7: Authentication &amp; Security</h2>
+        <ul>
+            <li>
+                <strong>Storing API Keys:</strong>
+                <pre><code>// import os
+// os.environ['WEATHER_API_KEY'] = 'YOUR_API_KEY'
+// os.environ['CRM_API_KEY'] = 'YOUR_CRM_API_KEY'
+</code></pre>
+            </li>
+            <li>
+                <strong>OAuth Example:</strong>
+                <pre><code>{
+    "type": "OAuth",
+    "service": "Google",
+    "client_id": "YOUR_CLIENT_ID",
+    "client_secret": "YOUR_CLIENT_SECRET",
+    "redirect_uri": "YOUR_REDIRECT_URI"
+}</code></pre>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Step 8: Best Practices</h2>
+        <pre><code>{
+    "weather_api": "Fetch Weather Data",
+    "crm_api": "Fetch Customer Data"
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Step 9: Real-World Example</h2>
+        <pre><code>{
+    "nodes": [
+        "weather_api_node",
+        "crm_api_node",
+        "api_request_node",
+        "public_api_node",
+        "transform_node",
+        "oauth_node"
+    ],
+    "connections": [
+        {"from": "weather_api", "to": "transform_node"},
+        {"from": "crm_api", "to": "chatbot_flow"},
+        {"from": "public_api_node", "to": "transform_node"}
+    ]
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Step 10: Conclusion</h2>
+        <p>Experiment with your own integrations and explore further resources for learning.</p>
+    </div>
+</body>
+</html>
